@@ -27,7 +27,8 @@ class Login extends Component {
         <div className="input-group">
           <span className="input-group-addon"></span>
           <div id="date-picker-example" className=" input-group datepicker">
-          <input type="datetime-local" className="form-control" ref={(date) => {this.dateRef = date;}} value={this.state.date} onChange={this._onDateChange.bind(this)}/>
+          <input type="datetime-local" className="form-control" ref={(date) => {this.dateRef = date;}} 
+          value={this.state.date} onChange={this._onDateChange.bind(this)}/>
           </div>
         </div>
       </div>

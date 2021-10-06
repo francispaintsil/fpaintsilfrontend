@@ -13,21 +13,18 @@ class Header extends Component {
 
     return (
       <div className="header">
-        <Link className= {loggedIn === false ? "navButtonHide" : "navButtonShow"} to="/home">
+         <Link className= {loggedIn === false ? "navButtonHide" : "navButtonShow"} to="/home">
           <Button variant="contained" size="small" color="primary">
             Home
           </Button>
-        </Link>
-        <Link className={loggedIn === true ? "navButtonHide" : "navButtonShow"} to="/login">
+        </Link> 
+
+      <Link className= {loggedIn === false ? "navButtonHide" : "navButtonShow"} to="/student">
           <Button variant="contained" size="small" color="primary">
-            Login
+            Find Students
           </Button>
-        </Link>
-        <Link className={loggedIn === false || true ? "navButtonHide" : "navButtonShow"} to="/registration">
-          <Button variant="contained" size="small" color="primary">
-            SignUp
-          </Button>
-        </Link>
+        </Link> 
+      
         <Link  className= {loggedIn === false ? "navButtonHide" : "navButtonShow"} to="/searchbook"> 
         <Button variant="contained" size="small" color="primary">
           FIND BOOK

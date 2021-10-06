@@ -8,6 +8,7 @@ import axios from 'axios';
 
 import { login } from '../../redux/actions/logIn-logOut';
 import { showSnackbar } from '../../redux/actions/snackbar';
+import { useHistory } from 'react-router';
 
 class Login extends Component {
 	idField = createRef();
@@ -33,24 +34,16 @@ class Login extends Component {
 				library_key: passField
 			};
 			axios
-				.post('http://localhost:5000/login', userObject)
-				.then((res) => {
-					if (res.data === 'Incorrect password') {
-						showSnackbar(true, 'Incorrect password');
-					} else if (res.data === 'No Users Found') {
-						showSnackbar(true, 'No Users Found');
-					} else {
-						//localStorage.setItem('token', res.data.token);
-						//set the true user auth here
-						this.props.history.push('/home');
+				.get('http://localhost:5000/login', userObject)
+				.then((rows) => {
+					if(!rows.length === 0){
+						console.log(rows);
+						useHistory().push('/home');
 					}
-				})
-				.then(() => {
-					login();
 				})
 				.catch((err) => {
 					console.error(err);
-					showSnackbar(true, 'Error logging in please try again.');
+					// showSnackbar(true, 'Error logging in please try again.');
 				});
 		}
 	};

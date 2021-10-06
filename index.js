@@ -17,6 +17,10 @@ import AdminLogin from "./components/AdminLogin";
 import AddLibrarian from "./components/AddLibrarian";
 import KeyGenComponent from "./components/KeyGenComponent";
 import login from "./components/pages/login";
+import Search from "./components/Search";
+import Book from "./components/Book"
+import AddBookForm from "./components/AddBookForm";
+import BookInformation from "./components/BookInformation";
 
 //           final state
 export const store = createStore(
@@ -36,8 +40,17 @@ ReactDOM.render(
             <Redirect to="/login" />
             </Route>
             <Route exact path="/login" component={login} />
-            <Route exact path="/home" component={withAuth(App)} />
-            <Route path="/registration" component={Registration} />
+
+            <Route path="/home">
+            <Search/>
+           <SearchBook/>
+              <AddBookForm/>
+              <Book/>
+         <BookInformation/>
+  
+            </Route>
+            <Route exact path="/registration" component={Registration} />
+            <Route exact path="/student" component={Search} />
             <Route exact path="/searchbook" component={SearchBook}/>
             <Route exact path="/addStudent" component={AddStudentForm}/>
             <Route path="/myadminpage" component={AdminLogin}/>
